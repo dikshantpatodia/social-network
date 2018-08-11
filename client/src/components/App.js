@@ -1,8 +1,9 @@
 import React                   from 'react';
+import Main                    from './auth/Main';
 
 const App = () => {
   return (
-    <div>Hello, World!</div>
+    <Main />
   );
 }
 
