@@ -4,12 +4,9 @@ import {
   Card,
   CardContent,
   CardActions,
+  TextField,
   withStyles,
 }                              from '@material-ui/core';
-
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 
 class Login extends React.Component {
   state = {
@@ -35,7 +32,8 @@ class Login extends React.Component {
       <Card className={classes.container}>
         <CardContent>
           <TextField
-            id="name"
+            fullWidth
+            id="username"
             label="Username"
             className={classes.textField}
             value={this.state.username}
@@ -43,8 +41,10 @@ class Login extends React.Component {
             margin="normal"
           />
           <TextField
-            id="name"
+            fullWidth
+            id="password"
             label="Password"
+            type="Password"
             className={classes.textField}
             value={this.state.password}
             onChange={this._handlePassword}
@@ -52,7 +52,9 @@ class Login extends React.Component {
           />
         </CardContent>
         <CardActions>
-          <Button size="small">Learn More</Button>
+          <Button fullWidth variant="raised" color="primary">
+            Login
+          </Button>
         </CardActions>
       </Card>
     );

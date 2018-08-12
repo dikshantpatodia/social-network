@@ -11,12 +11,19 @@ import {
 class Signup extends React.Component {
   state = {
     username: '',
+    email: '',
     password: '',
   };
   
   _handleUsername = e => {
     this.setState({
       username: e.target.value,
+    });
+  };
+
+  _handleEmail = e => {
+    this.setState({
+      email: e.target.value,
     });
   };
 
@@ -32,7 +39,8 @@ class Signup extends React.Component {
       <Card className={classes.container}>
         <CardContent>
           <TextField
-            id="name"
+            fullWidth
+            id="username"
             label="Username"
             className={classes.textField}
             value={this.state.username}
@@ -40,8 +48,20 @@ class Signup extends React.Component {
             margin="normal"
           />
           <TextField
-            id="name"
+            fullWidth
+            id="email"
+            label="Email"
+            type="email"
+            className={classes.textField}
+            value={this.state.email}
+            onChange={this._handleEmail}
+            margin="normal"
+          />
+          <TextField
+            fullWidth
+            id="password"
             label="Password"
+            type="Password"
             className={classes.textField}
             value={this.state.password}
             onChange={this._handlePassword}
@@ -49,7 +69,9 @@ class Signup extends React.Component {
           />
         </CardContent>
         <CardActions>
-          <Button size="small">Learn More</Button>
+          <Button fullWidth variant="raised" color="primary">
+            Signup
+          </Button>
         </CardActions>
       </Card>
     );
