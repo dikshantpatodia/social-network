@@ -1,4 +1,6 @@
 import React                   from 'react';
+import PropTypes               from 'prop-types';
+
 import {
   Button,
   Card,
@@ -9,21 +11,13 @@ import {
 }                              from '@material-ui/core';
 
 class Login extends React.Component {
-  state = {
-    username: '',
-    password: '',
-  };
-  
-  _handleUsername = e => {
-    this.setState({
-      username: e.target.value,
-    });
-  };
-
-  _handlePassword = e => {
-    this.setState({
-      password: e.target.value,
-    });
+  static propTypes = {
+    handleUsername: PropTypes.func,
+    handleEmail: PropTypes.func,
+    handlePassword: PropTypes.func,
+    username: PropTypes.string,
+    email: PropTypes.string,
+    Password: PropTypes.string,
   };
 
   render() {
@@ -36,8 +30,8 @@ class Login extends React.Component {
             id="username"
             label="Username"
             className={classes.textField}
-            value={this.state.username}
-            onChange={this._handleUsername}
+            value={this.props.username}
+            onChange={this.props.handleUsername}
             margin="normal"
           />
           <TextField
@@ -46,8 +40,8 @@ class Login extends React.Component {
             label="Password"
             type="Password"
             className={classes.textField}
-            value={this.state.password}
-            onChange={this._handlePassword}
+            value={this.props.password}
+            onChange={this.props.handlePassword}
             margin="normal"
           />
         </CardContent>
@@ -61,7 +55,7 @@ class Login extends React.Component {
   }
 }
 
-const styles = theme => ({
+const styles = () => ({
   container: {
     width: 320,
     margin: '80px auto',

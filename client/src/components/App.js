@@ -1,9 +1,9 @@
 import React                   from 'react';
-import Main                    from './auth/Main';
+import AuthParent              from './auth/AuthParent';
 
 const App = () => {
   return (
-    <Main />
+    <AuthParent />
   );
 }
 
